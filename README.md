@@ -5,7 +5,7 @@ moments from across the app, and reacting to posts. The interface uses a
 minimal black-and-white visual style rather than following a traditional
 social-media layout.
 
-**Live demo:** https://insta-clone-9n3w.onrender.com/feed
+**Live demo:** https://insta-clone-9n3w.onrender.com
 
 ## Current features
 
