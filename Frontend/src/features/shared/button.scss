@@ -1,20 +1,23 @@
 .button {
-    border: none;
+    border: 1px solid var(--text-h);
     outline: none;
-    padding-inline: 1.5rem;
-    padding-block: 1rem;
-    border-radius: 1rem;
+    padding: 0.75rem 1.15rem;
+    border-radius: 999px;
     cursor: pointer;
-    transition: transform 0.2s ease, box-shadow 0.2s ease, background-color 0.2s ease;
+    font: 600 0.78rem/1 var(--sans);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 
     &.primary-button {
-        background-color: #cf2342;
-        color: rgb(232, 226, 226);
-        box-shadow: 0 10px 24px rgba(207, 35, 66, 0.24);
+        background-color: var(--text-h);
+        color: var(--bg);
     }
 
     &:hover {
-        transform: translateY(-1px);
+        background: var(--bg);
+        color: var(--text-h);
+        transform: translateY(-2px);
     }
 
     &:active{

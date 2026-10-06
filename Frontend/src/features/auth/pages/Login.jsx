@@ -30,7 +30,8 @@ const Login = () => {
     return (
         <main>
             <div className="form-container">
-                <h1>Login</h1>
+                <p className="form-kicker">PIXLY</p>
+                <h1>Welcome back.</h1>
                 <form onSubmit={handleSubmit}>
                     <input
                         type="text"
@@ -52,13 +53,13 @@ const Login = () => {
                         }}
                         // value={password}
                     />
-                    <button className="button primary-button" type="submit">Login</button>
+                    <button className="button primary-button" type="submit">Sign in</button>
                 </form>
 
                 <p>
-                    Don't have an account?{" "}
+                    New here?{" "}
                     <Link className="toggleAuthForm" to="/register">
-                        Create One.
+                        Create an account
                     </Link>
                 </p>
             </div>

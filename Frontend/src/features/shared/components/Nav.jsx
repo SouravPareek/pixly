@@ -7,10 +7,11 @@ const Nav = () => {
 
     return (
     <nav className='nav-bar'>
-        <p>Insta</p>
+        <button className="wordmark" onClick={() => navigate("/feed")}>Pixly<span>×</span></button>
+        <p className="nav-kicker">YOUR VISUAL NOTEBOOK</p>
         <button 
         onClick={()=>{navigate("/create-post")}}
-        className="button primary-button">New Post</button>
+        className="button primary-button">Add a moment</button>
     </nav>
   )
 }

@@ -31,7 +31,8 @@ const Register = () => {
     return (
         <main>
             <div className="form-container">
-                <h1>Register</h1>
+                <p className="form-kicker">PIXLY</p>
+                <h1>Make it yours.</h1>
                 <form onSubmit={handleSubmit}>
                     <input
                         type="text"
@@ -64,11 +65,11 @@ const Register = () => {
                         // value={password}
                     />
 
-                    <button className="button primary-button" type="submit">Login</button>
+                    <button className="button primary-button" type="submit">Create account</button>
                 </form>
 
                 <p>
-                    Already have an accout?{" "}
+                    Already have an account?{" "}
                     <Link className="toggleAuthForm" to="/login">
                         Login
                     </Link>

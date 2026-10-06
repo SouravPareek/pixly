@@ -11,15 +11,14 @@ body,
 #root {
     width: 100%;
     min-height: 100%;
-    background:
-        radial-gradient(circle at top, rgba(207, 35, 66, 0.14), transparent 34%),
-        linear-gradient(180deg, #151515 0%, #101010 100%);
-    color: whitesmoke;
-    font-family: monospace;
+    background: var(--bg);
+    color: var(--text-h);
+    font-family: var(--sans);
 }
 
 .toggleAuthForm {
-    color: rgb(229, 117, 117);
+    color: var(--text-h);
     cursor: pointer;
-    text-decoration: none;
+    text-underline-offset: 3px;
+    font-weight: 600;
 }

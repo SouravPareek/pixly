@@ -14,30 +14,54 @@ main {
     .form-container {
         height: fit-content;
         @include flex-column(1.5rem);
-        min-width: 400px;
-        padding: 2rem;
-        border-radius: 1.5rem;
-        background: rgba(255, 255, 255, 0.04);
-        border: 1px solid rgba(255, 255, 255, 0.08);
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
-        backdrop-filter: blur(14px);
+        width: min(100% - 2rem, 410px);
+        padding: 2.75rem;
+        border: 1px solid var(--border);
+        background: #fff;
+        box-shadow: var(--shadow);
         text-align: center;
+
+        .form-kicker {
+            color: var(--text);
+            font-size: 0.65rem;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+        }
         
+        h1 {
+            font-size: 3rem;
+            margin: 0;
+        }
         
         form {
             @include flex-column(1.5rem);
+
+            .button.primary-button {
+                width: 100%;
+                border: 1px solid #171717;
+                background: #171717;
+                color: #f4f3ef;
+                box-shadow: 4px 4px 0 #b8b6b0;
+
+                &:hover {
+                    background: #30302e;
+                    color: #fff;
+                    transform: translate(-1px, -1px);
+                }
+            }
+
             input{
-                border: none;
+                border: 1px solid var(--border);
                 outline: none;
-                padding-inline: 1.5rem;
-                padding-block: 1rem;
-                border-radius: 1rem;
-                background: rgba(255, 255, 255, 0.92);
-                transition: box-shadow 0.2s ease, transform 0.2s ease;
+                padding: 0.9rem 1rem;
+                border-radius: 0;
+                background: var(--bg);
+                font: 0.9rem var(--sans);
+                transition: border-color 0.2s ease, box-shadow 0.2s ease;
 
                 &:focus {
-                    box-shadow: 0 0 0 3px rgba(207, 35, 66, 0.18);
-                    transform: translateY(-1px);
+                    border-color: var(--text-h);
+                    box-shadow: 3px 3px 0 var(--text-h);
                 }
             }
         }

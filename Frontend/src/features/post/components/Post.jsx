@@ -34,6 +34,9 @@ const Post = ({user, post, handleLike, handleUnlike}) => {
                 <p>{user.username}</p>
             </div>
             <img src={postImageSrc} alt=""/>
+            <div className="bottom">
+                <p className="caption">{post.caption}</p>
+            </div>
             <div className="icons">
                 <div className="left">
                     <button type="button">
@@ -89,9 +92,7 @@ const Post = ({user, post, handleLike, handleUnlike}) => {
                     </button>
                 </div>
             </div>
-            <div className="bottom">
-                <p className="caption">{post.caption}</p>
-            </div>
+            
         </div>
     );
 };

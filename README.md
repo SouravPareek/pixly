@@ -1,167 +1,171 @@
-# 📸 InstaClone (Full Stack)
+# Pixly
 
-A full-stack Instagram-like social media application built using modern web technologies.
-This project focuses on core social features like authentication, post creation, and feed interaction.
+Pixly is a simple full-stack visual sharing app for posting images, discovering
+moments from across the app, and reacting to posts. The interface uses a
+minimal black-and-white visual style rather than following a traditional
+social-media layout.
 
-🔗 **Live Demo:** https://insta-clone-9n3w.onrender.com
-> Note: hosted on Render's free tier, so the backend spins down after inactivity — the first request may take 30–50s to wake up.
+**Live demo:** https://insta-clone-9n3w.onrender.com/feed
 
----
+## Current features
 
-## 🚀 Current Features
+- User registration and login
+- Cookie-based JWT authentication
+- Image posts with optional captions
+- Global feed visible to signed-in users
+- Like and unlike posts
+- Image upload and delivery through ImageKit
+- Responsive Pixly frontend with SCSS styling
 
-* 🔐 User Authentication (Register & Login)
-* 📝 Create Posts (with image upload)
-* 📰 Feed System (view all posts)
-* ❤️ Like / Unlike posts
-* 🖼 Image upload using ImageKit
-* 🍪 Authentication using JWT & cookies
+## Current product state
 
----
+- Posts are currently global rather than limited by followers.
+- Posts cannot be deleted yet.
+- Login and logout controls from the feed are planned.
+- Following and follower functionality is planned, but it will not remove the
+  global feed.
 
-## 🛠 Tech Stack
+## Planned features
+
+- Comments
+- Bookmarks and personal collections
+- Sharing
+- User profiles and profile editing
+- Follow and unfollow
+- Notifications
+- Explore and search
+- Mood tags for organizing moments
+
+## Tech stack
 
 ### Frontend
 
-* React.js
-* SCSS
+- React
+- React Router
+- SCSS
+- Vite
 
 ### Backend
 
-* Node.js
-* Express.js
+- Node.js
+- Express
+- MongoDB Atlas
+- JWT and HTTP-only cookies
+- ImageKit
 
-### Database
+## Project structure
 
-* MongoDB (Atlas)
-
-### Other Tools
-
-* ImageKit (image storage & delivery)
-* JWT (authentication)
-* Render (deployment)
-
----
-
-## 📂 Project Structure
-
-```
+```text
 insta-clone/
 ├── Backend/
-│   ├── dist/          # frontend build (served by backend)
 │   ├── src/
+│   │   ├── config/
 │   │   ├── controllers/
-│   │   ├── routes/
-│   │   ├── models/
 │   │   ├── middlewares/
-│   │   └── app.js
+│   │   ├── models/
+│   │   └── routes/
 │   └── server.js
 │
 ├── Frontend/
 │   ├── src/
-│   └── ...
+│   │   ├── features/
+│   │   └── ...
+│   ├── index.html
+│   └── vite.config.js
+│
+└── README.md
 ```
 
----
-
-## ⚙️ Setup Instructions
+## Local setup
 
 ### 1. Clone the repository
 
-```
-git clone https://github.com/YOUR_USERNAME/insta-clone.git
+```bash
+git clone https://github.com/SouravPareek/insta-clone.git
 cd insta-clone
 ```
 
----
+### 2. Configure and start the backend
 
-### 2. Setup Backend
+Create `Backend/.env` with your own values:
 
-```
-cd Backend
-npm install
-npm run dev
-```
-
-Create a `.env` file inside `Backend/`:
-
-```
+```env
 MONGO_URI=your_mongodb_uri
 JWT_SECRET=your_secret
 IMAGEKIT_PUBLIC_KEY=your_key
 IMAGEKIT_PRIVATE_KEY=your_key
 IMAGEKIT_URL_ENDPOINT=your_url
+PORT=3000
 ```
 
----
+Then start the API:
 
-### 3. Setup Frontend
-
+```bash
+cd Backend
+npm install
+npm run dev
 ```
+
+### 3. Configure and start the frontend
+
+In `Frontend/.env`, use the local API proxy:
+
+```env
+VITE_API_URL=/api
+```
+
+Then, in a second terminal:
+
+```bash
 cd Frontend
 npm install
 npm run dev
 ```
 
----
+The frontend runs on the Vite development server, while `/api` requests are
+proxied to the backend at `http://localhost:3000`.
 
-### 4. Build Frontend (for production)
+## Production build
 
-```
+From the `Frontend` directory:
+
+```bash
 npm run build
 ```
 
-Copy the generated `dist` folder into `Backend/`.
+The production files are generated in `Frontend/dist`. Configure your hosting
+provider to use:
 
----
+```text
+Build command: npm run build
+Output directory: dist
+```
 
-## ⚠️ Project Status
+For a separately hosted backend, set the production frontend environment
+variable to the deployed API URL:
 
-🚧 This project is **currently under development**
+```env
+VITE_API_URL=https://your-backend-domain.com/api
+```
 
-### ✅ Completed Features:
+Keep all credentials and production secrets in the hosting provider's
+environment configuration. Do not commit `.env` files.
 
-* Authentication (Register / Login)
-* Feed system
-* Create Post
-* Like / Unlike posts
+## Deployment notes
 
-### 🔜 Upcoming Features:
+GitHub stores the source code; it does not host the running application by
+itself. A production deployment needs:
 
-* Follow / Unfollow users
-* User Profile page
-* Edit profile
-* Comments system
-* Notifications
-* Explore page
+1. A hosted backend connected to MongoDB Atlas.
+2. ImageKit credentials configured on the backend.
+3. A hosted frontend with the correct `VITE_API_URL`.
+4. Backend CORS configured for the deployed frontend domain.
+5. A production smoke test covering registration, login, posting, feed loading,
+   and likes.
 
----
+The current live deployment uses Render. The free tier may take a short time
+to respond after inactivity because of cold starts.
 
-## 🧠 Learning Highlights
-
-* Implemented secure authentication using JWT & cookies
-* Integrated third-party service (ImageKit) for media handling
-* Built REST APIs using Express and MongoDB
-* Deployed a full-stack application on Render
-* Managed environment variables for production
-
----
-
-## 🌐 Deployment
-
-This project is deployed on Render:
-
-👉 https://insta-clone-9n3w.onrender.com/feed
-
----
-
-## 📌 Notes
-
-* Initial load may be slow due to Render free tier (cold start)
-* Project is actively being improved with additional features
-
----
-
-## 👨‍💻 Author
+## Author
 
 **Sourav Pareek**

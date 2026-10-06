@@ -4,6 +4,8 @@ import Post from "../components/Post";
 import { usePost } from "../hooks/usePost";
 import Nav from "../../shared/components/Nav";
 import { useNavigate } from "react-router-dom";
+import FeedInfoCard from "../components/FeedInfoCard";
+import "../styles/feed-info-card.scss";
 
 
 const Feed = () => {
@@ -47,19 +49,22 @@ const Feed = () => {
                 <h1>Your latest posts</h1>
                 <p className="subtext">A quiet stream of new posts, likes, and updates.</p>
             </section>
-            <div className="feed">
-                <div className="posts">
-                    {feed.map((post) => {
-                        return (
-                            <Post
-                                key={post._id}
-                                user={post.user}
-                                post={post}
-                                handleLike={handleLike}
-                                handleUnlike={handleUnLike}
-                            />
-                        );
-                    })}
+            <div className="feed-content">
+                <FeedInfoCard />
+                <div className="feed">
+                    <div className="posts">
+                        {feed.map((post) => {
+                            return (
+                                <Post
+                                    key={post._id}
+                                    user={post.user}
+                                    post={post}
+                                    handleLike={handleLike}
+                                    handleUnlike={handleUnLike}
+                                />
+                            );
+                        })}
+                    </div>
                 </div>
             </div>
         </main>

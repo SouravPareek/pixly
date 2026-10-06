@@ -1,7 +1,9 @@
 import React, { useState, useRef } from "react";
 import "../styles/CreatePost.scss";
+import "../../auth/styles/form.scss";
 import { usePost } from "../hooks/usePost";
 import { useNavigate } from "react-router";
+import Nav from "../../shared/components/Nav";
 
 const CreatePost = () => {
     const [caption, setCaption] = useState("");
@@ -35,11 +37,13 @@ const CreatePost = () => {
 
     return (
         <main className="create-post-page">
+            <Nav />
             <div className="form-container">
-                <h1>Create Post</h1>
+                <p className="form-kicker">NEW ENTRY</p>
+                <h1>Add a moment.</h1>
                 <form onSubmit={handleSubmit}>
                     <label className="post-image-label" htmlFor="postImage">
-                        Select Image
+                        Choose an image
                     </label>
                     <input
                         ref={postImageInputFieldRef}
@@ -56,10 +60,10 @@ const CreatePost = () => {
                         type="text"
                         name="caption"
                         id="caption"
-                        placeholder="Enter Caption"
+                        placeholder="Add a short note (optional)"
                     />
                     <button className="button primary-button">
-                        Create Post
+                        Publish moment
                     </button>
                 </form>
             </div>
