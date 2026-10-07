@@ -5,7 +5,7 @@ moments from across the app, and reacting to posts. The interface uses a
 minimal black-and-white visual style rather than following a traditional
 social-media layout.
 
-**Live demo:** https://insta-clone-9n3w.onrender.com/feed
+**Live demo:** https://insta-clone-9n3w.onrender.com
 
 ## Current features
 
@@ -56,7 +56,7 @@ social-media layout.
 ## Project structure
 
 ```text
-insta-clone/
+pixly/
 ├── Backend/
 │   ├── src/
 │   │   ├── config/
@@ -81,8 +81,8 @@ insta-clone/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/SouravPareek/insta-clone.git
-cd insta-clone
+git clone https://github.com/SouravPareek/pixly.git
+cd pixly
 ```
 
 ### 2. Configure and start the backend
