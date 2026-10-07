@@ -56,7 +56,7 @@ social-media layout.
 ## Project structure
 
 ```text
-insta-clone/
+pixly/
 ├── Backend/
 │   ├── src/
 │   │   ├── config/
@@ -81,8 +81,8 @@ insta-clone/
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/SouravPareek/insta-clone.git
-cd insta-clone
+git clone https://github.com/SouravPareek/pixly.git
+cd pixly
 ```
 
 ### 2. Configure and start the backend
