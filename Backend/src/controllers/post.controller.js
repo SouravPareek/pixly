@@ -116,26 +116,22 @@ async function unLikePostController(req, res){
 }
 
 async function getFeedController(req, res) {
-    const user = req.user;
+    const posts = await postModel.find({}).populate("user", "username profileImage").lean()
 
-    const posts = await Promise.all(
-        (
-            await postModel.find({}).populate("user").lean()
-        ).map(async (post) => {
-            const isLiked = await likeModel.findOne({
-                user: user.username,
-                post: post._id,
-            });
+    const postIds = posts.map((p)=> p._id)
 
-            post.isLiked = Boolean(isLiked);
+    const likes = await likeModel.find({user: req.user.username, post: {$in: postIds}}).select("post").lean()
 
-            return post;
-        }),
-    );
+    const likedIds = new Set(likes.map((l)=> l.post.toString()))
+
+    const feed = posts.map((p)=>({
+        ...p, 
+        isLiked: likedIds.has(p._id.toString()),
+    }))
 
     res.status(200).json({
         message: "Posts fetched successfully",
-        posts,
+        posts: feed,
     });
 }
 
